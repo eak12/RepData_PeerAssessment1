@@ -117,6 +117,18 @@ MeanMedianEachDay<-activity %>% group_by(date) %>%
         summarise(Mean_Steps= mean(steps, na.rm = TRUE), Median_Steps=median(steps, na.rm = TRUE)) %>%
         mutate(day=date)
 
+with(MeanMedianEachDay, plot(day,Mean_Steps, type = "l", ylab = "Mean Step", main = "Mean Step each Day"))
+```
+
+![plot of chunk mean&median](figure/mean&median-1.png)
+
+```r
+with(MeanMedianEachDay, plot(day,Median_Steps, type = "l", ylab = "Median Step", main = "Median Step each Day"))
+```
+
+![plot of chunk mean&median](figure/mean&median-2.png)
+
+```r
 #12. step twelve - calculate the mean total number of steps taken per day
 mean<-mean(MeanMedianEachDay$Mean_Steps, na.rm = TRUE)
 
